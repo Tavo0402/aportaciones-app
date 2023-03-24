@@ -1,0 +1,40 @@
+<form [formGroup]="form!" (ngSubmit)="addInput()">
+  <div class="row">
+    <div class="col-md-12">
+      <label for="txtAddress" class="form-label fs-1">Dirección</label>
+      <ng-select
+        class="form-control form-select-lg"
+        (change)="getAddressDetails($event)"
+        formControlName="addressId"
+      >
+        <ng-option *ngFor="let adr of addresses" [value]="adr.id"
+          >{{ adr.street }} {{ adr.number }}</ng-option
+        >
+      </ng-select>
+    </div>
+  </div>
+  <br />
+  <br />
+  <div class="row">
+    <div class="col-md-4">
+      <label for="" class="form-label fs-1">Nombre</label>
+      <input type="text" class="form-control" formControlName="name" />
+    </div>
+    <div class="col-md-4">
+      <label for="" class="form-label fs-1">Calle y numero</label>
+      <input type="text" class="form-control" formControlName="address" />
+    </div>
+    <div class="col-md-2">
+      <label for="" class="form-label fs-1">Correo</label>
+      <input type="text" class="form-control" formControlName="email" />
+    </div>
+    <div class="col-md-2">
+      <label for="" class="form-label fs-1">Celular</label>
+      <input type="text" class="form-control" formControlName="cellPhone" />
+    </div>
+  </div>
+  <br />
+  <div class="d-flex justify-content-end">
+    <button class="btn btn-primary">Dar Aportacion</button>
+  </div>
+</form>
